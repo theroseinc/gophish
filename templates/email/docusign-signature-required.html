@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuSign - Please Sign Document</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border: 1px solid #e0e0e0;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="padding: 24px; background-color: #003e51;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <svg width="120" height="28" viewBox="0 0 120 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <text x="0" y="20" fill="#FFD100" font-family="Arial" font-weight="bold" font-size="22">DocuSign</text>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Yellow Banner -->
+                    <tr>
+                        <td style="background-color: #ffd100; padding: 20px 24px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="48" valign="middle">
+                                        <span style="font-size: 32px;">📝</span>
+                                    </td>
+                                    <td valign="middle">
+                                        <h1 style="color: #000000; font-size: 20px; font-weight: bold; margin: 0;">Please review and sign this document</h1>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 32px 24px;">
+                            <p style="color: #000000; font-size: 15px; line-height: 1.6; margin: 0 0 20px 0;">
+                                <strong>{{.FirstName}} {{.LastName}}</strong> has sent you a document to review and sign.
+                            </p>
+
+                            <!-- Document Details -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="border: 2px solid #003e51; margin: 24px 0;">
+                                <tr>
+                                    <td style="background-color: #003e51; padding: 12px 16px;">
+                                        <h2 style="color: #ffffff; font-size: 16px; font-weight: bold; margin: 0;">Document Details</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px 16px; background-color: #f9f9f9;">
+                                        <table width="100%" cellpadding="8" cellspacing="0">
+                                            <tr>
+                                                <td style="color: #666666; font-size: 13px; font-weight: bold; width: 30%;">Subject:</td>
+                                                <td style="color: #000000; font-size: 14px; font-weight: bold;">Employment Agreement - Confidential</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #666666; font-size: 13px; font-weight: bold;">From:</td>
+                                                <td style="color: #000000; font-size: 14px;">{{.Email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #666666; font-size: 13px; font-weight: bold;">Status:</td>
+                                                <td>
+                                                    <span style="background-color: #ff6b00; color: #ffffff; padding: 4px 12px; border-radius: 3px; font-size: 12px; font-weight: bold;">AWAITING YOUR SIGNATURE</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #666666; font-size: 13px; font-weight: bold;">Pages:</td>
+                                                <td style="color: #000000; font-size: 14px;">8 pages</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #666666; font-size: 13px; font-weight: bold;">Expires:</td>
+                                                <td style="color: #d32f2f; font-size: 14px; font-weight: bold;">In 48 hours</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Message -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f0f7ff; border-left: 4px solid #0073cf; padding: 16px; margin: 24px 0;">
+                                <tr>
+                                    <td>
+                                        <p style="color: #666666; font-size: 13px; font-weight: bold; margin: 0 0 8px 0;">MESSAGE FROM SENDER:</p>
+                                        <p style="color: #000000; font-size: 14px; line-height: 1.5; margin: 0;">
+                                            "Please review and sign the attached employment agreement at your earliest convenience. This document contains your offer details, compensation package, and start date. Your signature is required to proceed with onboarding."
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Important Notice -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; margin: 24px 0;">
+                                <tr>
+                                    <td style="padding: 16px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" valign="top">
+                                                    <span style="font-size: 20px;">⏰</span>
+                                                </td>
+                                                <td>
+                                                    <p style="color: #856404; font-size: 14px; font-weight: bold; margin: 0 0 4px 0;">Time Sensitive - Action Required</p>
+                                                    <p style="color: #856404; font-size: 13px; line-height: 1.5; margin: 0;">
+                                                        This document requires your immediate attention. Failure to sign within 48 hours may result in processing delays.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 32px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{.URL}}" style="display: inline-block; background-color: #003e51; color: #ffffff; padding: 16px 48px; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 4px;">REVIEW DOCUMENT</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Instructions -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="border-top: 2px solid #e0e0e0; padding-top: 20px; margin-top: 24px;">
+                                <tr>
+                                    <td>
+                                        <p style="color: #666666; font-size: 13px; font-weight: bold; margin: 0 0 12px 0;">SIGNING INSTRUCTIONS:</p>
+                                        <ol style="color: #000000; font-size: 13px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                            <li>Click the "Review Document" button above</li>
+                                            <li>Sign in to your DocuSign account (or create one)</li>
+                                            <li>Review all pages of the document carefully</li>
+                                            <li>Sign where indicated with yellow tabs</li>
+                                            <li>Click "Finish" to complete the signing process</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Security Note -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #e8f5e9; border-radius: 4px; padding: 12px; margin: 20px 0;">
+                                <tr>
+                                    <td>
+                                        <p style="color: #2e7d32; font-size: 12px; margin: 0;">
+                                            🔒 <strong>Secure & Legally Binding:</strong> Documents signed with DocuSign are protected with bank-level encryption and are legally binding in most countries.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #666666; font-size: 12px; line-height: 1.5; margin: 20px 0 0 0;">
+                                <strong>Need help?</strong> Visit the <a href="#" style="color: #0073cf; text-decoration: none;">DocuSign Support Center</a> or contact the sender directly.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 20px 24px; background-color: #f4f4f4; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #666666; font-size: 11px; line-height: 1.5; margin: 0 0 8px 0; text-align: center;">
+                                This email is a service from DocuSign on behalf of {{.Email}}
+                            </p>
+                            <p style="color: #666666; font-size: 10px; line-height: 1.5; margin: 0; text-align: center;">
+                                © 2024 DocuSign, Inc. | 221 Main Street, Suite 1000, San Francisco, CA 94105<br>
+                                <a href="#" style="color: #0073cf; text-decoration: none;">Privacy Policy</a> |
+                                <a href="#" style="color: #0073cf; text-decoration: none;">Terms of Service</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

