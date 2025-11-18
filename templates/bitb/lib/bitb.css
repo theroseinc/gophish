@@ -1,0 +1,420 @@
+/**
+ * Browser-in-the-Browser (BitB) Styles
+ * Creates realistic browser window appearance for educational security testing
+ */
+
+/* Main Container */
+.bitb-window {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bitb-window.bitb-show {
+    opacity: 1;
+}
+
+/* Backdrop */
+.bitb-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+/* Browser Window Container */
+.bitb-container {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+}
+
+/* Chrome/Titlebar */
+.bitb-chrome {
+    background: #f1f3f4;
+    user-select: none;
+}
+
+.bitb-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 36px;
+    background: #dee1e6;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+/* Tabs */
+.bitb-tabs {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    padding-left: 8px;
+}
+
+.bitb-tab {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    padding: 0 12px;
+    background: #e8eaed;
+    border-radius: 8px 8px 0 0;
+    margin-right: 2px;
+    min-width: 200px;
+    max-width: 240px;
+}
+
+.bitb-tab-active {
+    background: #ffffff;
+}
+
+.bitb-tab-favicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    color: #5f6368;
+}
+
+.bitb-tab-title {
+    flex: 1;
+    font-size: 12px;
+    color: #3c4043;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bitb-tab-close {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #5f6368;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.bitb-tab-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.bitb-new-tab {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #5f6368;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 4px;
+}
+
+.bitb-new-tab:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Window Controls */
+.bitb-window-controls {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 8px;
+}
+
+.bitb-control {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #5f6368;
+    cursor: pointer;
+}
+
+.bitb-control:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.bitb-close:hover {
+    background: #e81123;
+    color: #ffffff;
+}
+
+/* Toolbar */
+.bitb-toolbar {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 8px;
+    background: #ffffff;
+    border-bottom: 1px solid #e8eaed;
+}
+
+.bitb-nav-buttons {
+    display: flex;
+    gap: 4px;
+    margin-right: 8px;
+}
+
+.bitb-nav-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #5f6368;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bitb-nav-btn:hover:not(:disabled) {
+    background: #e8eaed;
+}
+
+.bitb-nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Address Bar */
+.bitb-addressbar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 34px;
+    background: #f1f3f4;
+    border-radius: 17px;
+    padding: 0 12px;
+    margin: 0 8px;
+}
+
+.bitb-security-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bitb-url {
+    flex: 1;
+    font-size: 13px;
+    color: #202124;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bitb-bookmark-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    color: #5f6368;
+    cursor: pointer;
+}
+
+.bitb-toolbar-icons {
+    display: flex;
+    gap: 4px;
+}
+
+.bitb-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #5f6368;
+    cursor: pointer;
+}
+
+.bitb-icon:hover {
+    background: #e8eaed;
+}
+
+/* Content Wrapper */
+.bitb-content-wrapper {
+    background: #ffffff;
+    overflow: auto;
+}
+
+.bitb-content {
+    width: 100%;
+    height: 100%;
+}
+
+/* Firefox Theme */
+.bitb-chrome-firefox .bitb-titlebar {
+    background: #f9f9fa;
+}
+
+.bitb-chrome-firefox .bitb-tab {
+    background: #d7d7db;
+}
+
+.bitb-chrome-firefox .bitb-tab-active {
+    background: #ffffff;
+}
+
+.bitb-chrome-firefox .bitb-toolbar {
+    background: #f9f9fa;
+}
+
+/* Safari Theme */
+.bitb-chrome-safari .bitb-titlebar {
+    background: linear-gradient(to bottom, #ebebeb 0%, #d5d5d5 100%);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bitb-controls-left {
+    position: absolute;
+    left: 8px;
+    gap: 8px;
+}
+
+.bitb-control.bitb-macos {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    font-size: 0;
+}
+
+.bitb-close.bitb-macos {
+    background: #ff5f57;
+    border: 1px solid #e04339;
+}
+
+.bitb-minimize.bitb-macos {
+    background: #ffbd2e;
+    border: 1px solid #dfa123;
+}
+
+.bitb-maximize.bitb-macos {
+    background: #28ca42;
+    border: 1px solid #1dad2f;
+}
+
+.bitb-title-center {
+    font-size: 13px;
+    color: #3c3c3c;
+    font-weight: 500;
+}
+
+.bitb-chrome-safari .bitb-toolbar {
+    background: #ffffff;
+    border-top: 1px solid #c6c6c6;
+}
+
+/* Edge Theme */
+.bitb-chrome-edge .bitb-titlebar {
+    background: #f3f3f3;
+}
+
+.bitb-chrome-edge .bitb-tab {
+    background: #e5e5e5;
+}
+
+.bitb-chrome-edge .bitb-tab-active {
+    background: #ffffff;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .bitb-chrome {
+        background: #202124;
+    }
+
+    .bitb-titlebar {
+        background: #292a2d;
+        border-bottom-color: #3c4043;
+    }
+
+    .bitb-tab {
+        background: #35363a;
+    }
+
+    .bitb-tab-active {
+        background: #202124;
+    }
+
+    .bitb-tab-title,
+    .bitb-url {
+        color: #e8eaed;
+    }
+
+    .bitb-toolbar {
+        background: #202124;
+        border-bottom-color: #3c4043;
+    }
+
+    .bitb-addressbar {
+        background: #35363a;
+    }
+
+    .bitb-nav-btn:hover:not(:disabled),
+    .bitb-icon:hover {
+        background: #35363a;
+    }
+
+    .bitb-content-wrapper {
+        background: #202124;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bitb-container {
+        width: 95% !important;
+        max-width: 500px;
+    }
+
+    .bitb-tab {
+        min-width: 150px;
+    }
+}
+
+/* Animation */
+@keyframes bitb-slide-in {
+    from {
+        transform: translate(-50%, -55%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.bitb-show .bitb-container {
+    animation: bitb-slide-in 0.3s ease;
+}
