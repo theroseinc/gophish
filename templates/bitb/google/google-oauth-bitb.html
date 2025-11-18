@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Sign in with Google</title>
+    <link rel="stylesheet" href="../lib/bitb.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-container {
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .google-signin-btn {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            color: #3c4043;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: box-shadow 0.2s;
+        }
+
+        .google-signin-btn:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .google-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+        }
+
+        /* Hidden OAuth Content */
+        #google-oauth-content {
+            display: none;
+        }
+
+        .oauth-container {
+            background: white;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .oauth-logo {
+            margin-bottom: 24px;
+        }
+
+        .oauth-title {
+            color: #202124;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .oauth-subtitle {
+            color: #5f6368;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        .oauth-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 8px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 13px 15px;
+            font-size: 16px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 2px rgba(26,115,232,0.1);
+        }
+
+        .oauth-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 24px;
+        }
+
+        .oauth-button:hover {
+            background: #1557b0;
+        }
+
+        .oauth-footer {
+            margin-top: 32px;
+            font-size: 13px;
+            color: #5f6368;
+        }
+
+        .oauth-footer a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Welcome to Our Platform</h1>
+        <p>Sign in with your Google account to continue</p>
+
+        <!-- Trigger Button for BitB -->
+        <button
+            class="google-signin-btn"
+            data-bitb-trigger
+            data-bitb-title="Sign in - Google Accounts"
+            data-bitb-url="https://accounts.google.com/signin/oauth/consent?client_id=example"
+            data-bitb-width="500"
+            data-bitb-height="600"
+            data-bitb-browser="chrome"
+            data-bitb-content="google-oauth-content">
+            <svg class="google-icon" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            Sign in with Google
+        </button>
+    </div>
+
+    <!-- Hidden BitB Content -->
+    <div id="google-oauth-content">
+        <div class="oauth-container">
+            <div class="oauth-logo">
+                <svg width="75" height="24" viewBox="0 0 75 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.24 8.19v5.88h7.44c-.24 1.56-.96 2.88-2.04 3.78-1.32 1.08-3 1.74-5.4 1.74-4.32 0-7.68-3.48-7.68-7.8s3.36-7.8 7.68-7.8c2.28 0 3.96.9 5.22 2.04l4.26-4.26C16.32 1.08 13.08 0 9.24 0 4.14 0 0 4.14 0 9.24s4.14 9.24 9.24 9.24c2.7 0 5.04-.9 6.72-2.46 1.74-1.56 2.28-3.78 2.28-5.58 0-.54-.06-1.08-.12-1.56H9.24v-.69z" fill="#4285F4"/>
+                    <path d="M25.92 0v18h-2.4V0h2.4z" fill="#EA4335"/>
+                    <path d="M42.84 14.52c-1.32 1.32-3.12 2.04-5.22 2.04-4.08 0-7.44-3.36-7.44-7.8 0-4.32 3.36-7.8 7.44-7.8 2.1 0 3.9.72 5.22 2.04l-1.68 1.68c-.96-.96-2.28-1.44-3.54-1.44-2.88 0-5.16 2.34-5.16 5.52s2.28 5.52 5.16 5.52c1.26 0 2.58-.48 3.54-1.44l1.68 1.68z" fill="#FBBC04"/>
+                    <path d="M59.76 14.52c-1.32 1.32-3.12 2.04-5.22 2.04-4.08 0-7.44-3.36-7.44-7.8 0-4.32 3.36-7.8 7.44-7.8 2.1 0 3.9.72 5.22 2.04l-1.68 1.68c-.96-.96-2.28-1.44-3.54-1.44-2.88 0-5.16 2.34-5.16 5.52s2.28 5.52 5.16 5.52c1.26 0 2.58-.48 3.54-1.44l1.68 1.68z" fill="#34A853"/>
+                </svg>
+            </div>
+
+            <h2 class="oauth-title">Sign in</h2>
+            <p class="oauth-subtitle">to continue to Example App</p>
+
+            <form class="oauth-form" method="POST" action="">
+                <div class="form-group">
+                    <label for="email">Email or phone</label>
+                    <input type="email" id="email" name="email" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="oauth-button">Sign in</button>
+
+                <div class="oauth-footer">
+                    <a href="#">Forgot password?</a> • <a href="#">Create account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../lib/bitb.js"></script>
+</body>
+</html>

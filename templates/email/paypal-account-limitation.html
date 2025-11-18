@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal - Action Required</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f5f7fa;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f7fa;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 4px; overflow: hidden;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="padding: 24px 40px; background-color: #003087;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <svg width="100" height="26" viewBox="0 0 100 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <text x="0" y="20" fill="#FFFFFF" font-family="'Verdana Pro', Verdana, sans-serif" font-weight="bold" font-size="20">PayPal</text>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Alert Banner -->
+                    <tr>
+                        <td style="background-color: #fff4e5; padding: 20px 40px; border-bottom: 3px solid #ff9800;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="40" valign="middle">
+                                        <span style="font-size: 28px;">⚠️</span>
+                                    </td>
+                                    <td valign="middle">
+                                        <h1 style="color: #e65100; font-size: 18px; font-weight: 600; margin: 0;">Account Access Limitations</h1>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 32px 40px;">
+                            <p style="color: #2c2e2f; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
+                                Hello {{.FirstName}} {{.LastName}},
+                            </p>
+                            <p style="color: #2c2e2f; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
+                                We've detected unusual activity on your PayPal account <strong>{{.Email}}</strong>. To protect your account, we've temporarily limited what you can do with it until we can verify your information.
+                            </p>
+
+                            <!-- Limitation Details -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f7f9fa; border-left: 4px solid #003087; margin: 24px 0;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <h3 style="color: #003087; font-size: 15px; font-weight: 600; margin: 0 0 12px 0;">What's Limited:</h3>
+                                        <ul style="color: #2c2e2f; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+                                            <li>Withdrawing funds to your bank account</li>
+                                            <li>Sending money</li>
+                                            <li>Removing bank or credit card information</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Activity Details -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #cbd2d6; border-radius: 4px; margin: 24px 0;">
+                                <tr>
+                                    <td style="background-color: #003087; padding: 12px 16px; border-radius: 4px 4px 0 0;">
+                                        <h3 style="color: #ffffff; font-size: 14px; font-weight: 600; margin: 0;">Unusual Activity Detected</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px 16px;">
+                                        <table width="100%" cellpadding="8" cellspacing="0">
+                                            <tr>
+                                                <td style="color: #687173; font-size: 13px;">Date:</td>
+                                                <td style="color: #2c2e2f; font-size: 14px; font-weight: 500;">{{.CurrentDate}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #687173; font-size: 13px;">Activity Type:</td>
+                                                <td style="color: #2c2e2f; font-size: 14px;">Login from unrecognized device</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #687173; font-size: 13px;">Location:</td>
+                                                <td style="color: #2c2e2f; font-size: 14px;">Unknown (VPN detected)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #687173; font-size: 13px;">Case Number:</td>
+                                                <td style="color: #2c2e2f; font-size: 14px; font-family: monospace;">PP-{{.RId}}-2024</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Resolution Steps -->
+                            <h3 style="color: #003087; font-size: 16px; font-weight: 600; margin: 24px 0 16px 0;">How to Restore Your Account:</h3>
+                            <ol style="color: #2c2e2f; font-size: 15px; line-height: 1.8; margin: 0 0 24px 0; padding-left: 20px;">
+                                <li>Log in to your PayPal account</li>
+                                <li>Review and confirm your recent activity</li>
+                                <li>Update your security information</li>
+                                <li>Verify your identity</li>
+                            </ol>
+
+                            <!-- Warning Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #fff3cd; border: 2px solid #ffc107; border-radius: 4px; margin: 24px 0;">
+                                <tr>
+                                    <td style="padding: 16px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" valign="top">
+                                                    <span style="font-size: 20px;">⏰</span>
+                                                </td>
+                                                <td>
+                                                    <p style="color: #856404; font-size: 14px; font-weight: 600; margin: 0 0 4px 0;">Action Required Within 48 Hours</p>
+                                                    <p style="color: #856404; font-size: 13px; line-height: 1.5; margin: 0;">
+                                                        If we don't hear from you within 48 hours, we may have to permanently limit your account. You won't be able to send, receive, or withdraw funds.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 32px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{.URL}}" style="display: inline-block; background-color: #0070ba; color: #ffffff; padding: 14px 40px; text-decoration: none; border-radius: 24px; font-size: 16px; font-weight: 600;">Resolve Account Limitation</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Security Tips -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #e8f4fd; border-radius: 4px; padding: 16px; margin: 24px 0;">
+                                <tr>
+                                    <td>
+                                        <p style="color: #005ea6; font-size: 13px; font-weight: 600; margin: 0 0 8px 0;">🛡️ Security Tip:</p>
+                                        <p style="color: #005ea6; font-size: 12px; line-height: 1.5; margin: 0;">
+                                            PayPal will never ask you to provide your password via email. Always check the URL in your browser to ensure you're on paypal.com before entering sensitive information.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #687173; font-size: 13px; line-height: 1.5; margin: 24px 0 0 0;">
+                                We apologize for any inconvenience this may cause. We're committed to keeping your account and financial information secure.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 24px 40px; background-color: #f7f9fa; border-top: 1px solid #cbd2d6;">
+                            <p style="color: #687173; font-size: 12px; line-height: 1.5; margin: 0 0 8px 0; text-align: center;">
+                                This is an automated message. Please do not reply to this email.
+                            </p>
+                            <p style="color: #687173; font-size: 11px; line-height: 1.5; margin: 0; text-align: center;">
+                                © 1999-2024 PayPal, Inc. All rights reserved. PayPal is located at 2211 North First Street, San Jose, CA 95131.<br>
+                                <a href="#" style="color: #0070ba; text-decoration: none;">Privacy</a> |
+                                <a href="#" style="color: #0070ba; text-decoration: none;">Legal</a> |
+                                <a href="#" style="color: #0070ba; text-decoration: none;">Help Center</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

