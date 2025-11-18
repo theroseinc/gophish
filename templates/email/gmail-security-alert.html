@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Security Alert</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Google Sans', Roboto, Arial, sans-serif; background-color: #f1f3f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f1f3f4;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="padding: 40px 40px 0 40px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <svg width="74" height="24" viewBox="0 0 74 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.24 8.19v5.88h7.44c-.24 1.56-.96 2.88-2.04 3.78-1.32 1.08-3 1.74-5.4 1.74-4.32 0-7.68-3.48-7.68-7.8s3.36-7.8 7.68-7.8c2.28 0 3.96.9 5.22 2.04l4.26-4.26C16.32 1.08 13.08 0 9.24 0 4.14 0 0 4.14 0 9.24s4.14 9.24 9.24 9.24c2.7 0 5.04-.9 6.72-2.46 1.74-1.56 2.28-3.78 2.28-5.58 0-.54-.06-1.08-.12-1.56H9.24v-.69z" fill="#4285F4"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Icon -->
+                    <tr>
+                        <td align="center" style="padding: 30px 40px 20px 40px;">
+                            <div style="width: 64px; height: 64px; border-radius: 50%; background-color: #ea4335; display: inline-flex; align-items: center; justify-content: center;">
+                                <span style="font-size: 36px; color: #ffffff;">⚠</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Title -->
+                    <tr>
+                        <td style="padding: 0 40px;">
+                            <h1 style="color: #202124; font-size: 28px; font-weight: 400; text-align: center; margin: 0 0 8px 0;">Security alert</h1>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 20px 40px;">
+                            <p style="color: #5f6368; font-size: 14px; line-height: 20px; margin: 0 0 20px 0; text-align: center;">
+                                Someone just used your password to try to sign in to your Google Account <strong>{{.Email}}</strong>
+                            </p>
+
+                            <!-- Details Card -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8f9fa; border-radius: 8px; border: 1px solid #dadce0; margin: 24px 0;">
+                                <tr>
+                                    <td style="padding: 24px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td style="padding-bottom: 16px;">
+                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="40" valign="top">
+                                                                <span style="font-size: 24px;">🌍</span>
+                                                            </td>
+                                                            <td>
+                                                                <div style="color: #5f6368; font-size: 12px; margin-bottom: 4px;">Location</div>
+                                                                <div style="color: #202124; font-size: 14px; font-weight: 500;">Unknown location</div>
+                                                                <div style="color: #5f6368; font-size: 12px; margin-top: 2px;">IP: 185.220.XXX.XXX</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-bottom: 16px;">
+                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="40" valign="top">
+                                                                <span style="font-size: 24px;">🕐</span>
+                                                            </td>
+                                                            <td>
+                                                                <div style="color: #5f6368; font-size: 12px; margin-bottom: 4px;">Date & Time</div>
+                                                                <div style="color: #202124; font-size: 14px; font-weight: 500;">{{.CurrentDate}}</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="40" valign="top">
+                                                                <span style="font-size: 24px;">💻</span>
+                                                            </td>
+                                                            <td>
+                                                                <div style="color: #5f6368; font-size: 12px; margin-bottom: 4px;">Device</div>
+                                                                <div style="color: #202124; font-size: 14px; font-weight: 500;">Linux • Firefox</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #5f6368; font-size: 14px; line-height: 20px; margin: 24px 0; text-align: center;">
+                                Google blocked this sign-in attempt. You should change your password immediately to prevent others from gaining access.
+                            </p>
+
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 32px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{.URL}}" style="display: inline-block; background-color: #1a73e8; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: 500; letter-spacing: 0.25px;">Check Activity</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #e8f0fe; border-radius: 4px; margin: 24px 0; padding: 16px;">
+                                <tr>
+                                    <td>
+                                        <p style="color: #1967d2; font-size: 13px; line-height: 18px; margin: 0;">
+                                            <strong>💡 Tip:</strong> Enable 2-Step Verification to add an extra layer of security to your account.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #5f6368; font-size: 12px; line-height: 18px; margin: 24px 0 0 0;">
+                                You received this email to let you know about important changes to your Google Account and services.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 32px 40px; border-top: 1px solid #e8eaed;">
+                            <p style="color: #5f6368; font-size: 12px; line-height: 18px; margin: 0; text-align: center;">
+                                © 2024 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Payment Failed</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, sans-serif; background-color: #f6f9fc;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f6f9fc;">
+        <tr>
+            <td align="center" style="padding: 48px 24px;">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 5px; box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="padding: 32px 48px 0 48px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <svg width="49" height="20" viewBox="0 0 49 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M49 10.1c0-5.5-2.8-9.9-8.1-9.9-5.3 0-8.7 4.4-8.7 9.9 0 6.5 3.7 9.9 9 9.9 2.6 0 4.6-.6 6.2-1.4v-4.8c-1.6.7-3.3 1.1-5.3 1.1-2.1 0-4-.7-4.2-3.2h11c0-.3.1-1.1.1-1.6zM37.9 8.4c0-2.4 1.5-3.4 3-3.4 1.4 0 2.8 1 2.8 3.4h-5.8zm-9.1-6.3c-2.1 0-3.5 1-4.3 1.7l-.3-1.3h-5.3v19.1l6-.1.1-4.6c.8.6 2 1.4 4 1.4 4 0 7.7-3.2 7.7-10 0-6.3-3.8-9.8-7.9-9.8zm-1.4 14.8c-1.3 0-2.1-.5-2.7-1.1l-.1-8.7c.6-.7 1.4-1.2 2.7-1.2 2.1 0 3.6 2.4 3.6 5.5.1 3.2-1.4 5.5-3.5 5.5zM11 5.9c0-1.1.9-1.5 2.4-1.5 2.1 0 4.8.6 6.9 1.8V.6C18.2.2 16.1 0 14 0 8.4 0 4.6 2.7 4.6 7.3c0 7.1 9.8 6 9.8 9.1 0 1.2-1 1.6-2.5 1.6-2.2 0-5-.9-7.2-2.1v5.7c2.1.9 4.3 1.3 6.5 1.3 5.7 0 9.7-2.8 9.7-7.4C21 7.1 11 8.4 11 5.9z" fill="#635BFF"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Alert -->
+                    <tr>
+                        <td style="padding: 32px 48px 0 48px;">
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #fff5f5; border-left: 4px solid #e74c3c; border-radius: 4px;">
+                                <tr>
+                                    <td style="padding: 16px 20px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="30" valign="top">
+                                                    <span style="font-size: 20px;">⚠️</span>
+                                                </td>
+                                                <td>
+                                                    <strong style="color: #1a1a1a; font-size: 15px;">Payment Failed</strong><br>
+                                                    <span style="color: #525f7f; font-size: 14px;">Your payment method was declined</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 32px 48px;">
+                            <p style="color: #525f7f; font-size: 16px; line-height: 24px; margin: 0 0 16px 0;">
+                                Hi {{.FirstName}},
+                            </p>
+                            <p style="color: #525f7f; font-size: 16px; line-height: 24px; margin: 0 0 24px 0;">
+                                We attempted to charge your payment method but it was declined by your bank. This could happen for several reasons:
+                            </p>
+
+                            <ul style="color: #525f7f; font-size: 15px; line-height: 24px; margin: 0 0 24px 0; padding-left: 20px;">
+                                <li style="margin-bottom: 8px;">Insufficient funds</li>
+                                <li style="margin-bottom: 8px;">Card expired or cancelled</li>
+                                <li style="margin-bottom: 8px;">Incorrect billing information</li>
+                                <li style="margin-bottom: 8px;">Bank fraud prevention</li>
+                            </ul>
+
+                            <!-- Payment Details -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f6f9fc; border-radius: 6px; margin: 24px 0;">
+                                <tr>
+                                    <td style="padding: 24px;">
+                                        <h3 style="color: #1a1a1a; font-size: 14px; font-weight: 600; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 0.5px;">Payment Details</h3>
+                                        <table width="100%" cellpadding="8" cellspacing="0">
+                                            <tr>
+                                                <td style="color: #8898aa; font-size: 14px; padding: 8px 0;">Amount:</td>
+                                                <td align="right" style="color: #1a1a1a; font-size: 14px; font-weight: 600; padding: 8px 0;">$149.99 USD</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #8898aa; font-size: 14px; padding: 8px 0;">Payment Method:</td>
+                                                <td align="right" style="color: #1a1a1a; font-size: 14px; padding: 8px 0;">Visa •••• 4242</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #8898aa; font-size: 14px; padding: 8px 0;">Date:</td>
+                                                <td align="right" style="color: #1a1a1a; font-size: 14px; padding: 8px 0;">{{.CurrentDate}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #8898aa; font-size: 14px; padding: 8px 0;">Failure Code:</td>
+                                                <td align="right" style="color: #e74c3c; font-size: 14px; font-family: monospace; padding: 8px 0;">card_declined</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #525f7f; font-size: 16px; line-height: 24px; margin: 24px 0;">
+                                To continue your service without interruption, please update your payment method or contact your bank to authorize the charge.
+                            </p>
+
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 32px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{.URL}}" style="display: inline-block; background-color: #635bff; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-size: 15px; font-weight: 600;">Update Payment Method</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Warning Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #fff9e6; border: 1px solid #ffe999; border-radius: 4px; margin: 24px 0;">
+                                <tr>
+                                    <td style="padding: 16px;">
+                                        <p style="color: #856404; font-size: 13px; line-height: 20px; margin: 0;">
+                                            <strong>⏰ Action Required:</strong> Your account will be suspended in 3 days if payment is not received. Update your payment method now to avoid service interruption.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #8898aa; font-size: 13px; line-height: 20px; margin: 24px 0 0 0;">
+                                If you believe this is an error or need assistance, please contact our support team at support@stripe.com or visit your <a href="#" style="color: #635bff; text-decoration: none;">billing dashboard</a>.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 32px 48px; border-top: 1px solid #e6ebf1;">
+                            <p style="color: #8898aa; font-size: 12px; line-height: 18px; margin: 0 0 8px 0;">
+                                <strong>Stripe, Inc.</strong><br>
+                                510 Townsend Street, San Francisco, CA 94103
+                            </p>
+                            <p style="color: #8898aa; font-size: 11px; line-height: 16px; margin: 0;">
+                                This email was sent to {{.Email}}. If you'd like to unsubscribe from future billing notifications,
+                                <a href="#" style="color: #635bff; text-decoration: none;">click here</a>.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Security Footer -->
+                <table width="600" cellpadding="0" cellspacing="0" style="margin-top: 24px;">
+                    <tr>
+                        <td align="center">
+                            <p style="color: #8898aa; font-size: 11px; line-height: 16px; margin: 0;">
+                                🔒 This is a secure notification from Stripe. Never share your login credentials or payment information via email.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

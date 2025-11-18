@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Security Alert</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f3f2f1;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f3f2f1;">
+        <tr>
+            <td align="center" style="padding: 40px 0;">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%); padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <svg width="108" height="24" viewBox="0 0 108 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="11" height="11" fill="#F25022"/>
+                                            <rect x="13" width="11" height="11" fill="#7FBA00"/>
+                                            <rect y="13" width="11" height="11" fill="#00A4EF"/>
+                                            <rect x="13" y="13" width="11" height="11" fill="#FFB900"/>
+                                        </svg>
+                                        <h1 style="color: #ffffff; margin: 15px 0 0 0; font-size: 24px; font-weight: 600;">Microsoft Account Security</h1>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Alert Banner -->
+                    <tr>
+                        <td style="background-color: #fff4ce; padding: 15px 30px; border-left: 4px solid #ffb900;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="30" valign="top">
+                                        <span style="font-size: 24px;">⚠️</span>
+                                    </td>
+                                    <td>
+                                        <strong style="color: #323130; font-size: 14px;">Security Alert:</strong>
+                                        <span style="color: #605e5c; font-size: 14px;"> Unusual sign-in activity detected</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 30px;">
+                            <p style="color: #323130; font-size: 16px; line-height: 1.5; margin: 0 0 15px 0;">
+                                Hello {{.FirstName}},
+                            </p>
+                            <p style="color: #323130; font-size: 16px; line-height: 1.5; margin: 0 0 20px 0;">
+                                We detected an unusual sign-in attempt to your Microsoft account <strong>{{.Email}}</strong> from an unrecognized device or location.
+                            </p>
+
+                            <!-- Details Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #faf9f8; border-radius: 4px; margin: 20px 0;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table width="100%" cellpadding="5" cellspacing="0">
+                                            <tr>
+                                                <td style="color: #605e5c; font-size: 14px; padding: 5px 0;"><strong>Date & Time:</strong></td>
+                                                <td style="color: #323130; font-size: 14px; padding: 5px 0;">{{.CurrentDate}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #605e5c; font-size: 14px; padding: 5px 0;"><strong>Location:</strong></td>
+                                                <td style="color: #323130; font-size: 14px; padding: 5px 0;">Unknown (VPN Detected)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #605e5c; font-size: 14px; padding: 5px 0;"><strong>Device:</strong></td>
+                                                <td style="color: #323130; font-size: 14px; padding: 5px 0;">Linux - Firefox</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #605e5c; font-size: 14px; padding: 5px 0;"><strong>IP Address:</strong></td>
+                                                <td style="color: #323130; font-size: 14px; padding: 5px 0;">185.220.101.XXX</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #323130; font-size: 16px; line-height: 1.5; margin: 20px 0;">
+                                If this was you, you can safely ignore this email. If you don't recognize this activity, please secure your account immediately.
+                            </p>
+
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{.URL}}" style="display: inline-block; background-color: #0078d4; color: #ffffff; padding: 14px 40px; text-decoration: none; border-radius: 4px; font-size: 16px; font-weight: 600;">Review Account Activity</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #605e5c; font-size: 14px; line-height: 1.5; margin: 20px 0 0 0;">
+                                This is an automated security notification from Microsoft. We recommend enabling multi-factor authentication to better protect your account.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f3f2f1; padding: 20px 30px; border-radius: 0 0 8px 8px;">
+                            <p style="color: #605e5c; font-size: 12px; line-height: 1.5; margin: 0;">
+                                Microsoft Corporation<br>
+                                One Microsoft Way, Redmond, WA 98052
+                            </p>
+                            <p style="color: #8a8886; font-size: 11px; line-height: 1.5; margin: 10px 0 0 0;">
+                                This email was sent to {{.Email}}. If you'd rather not receive this kind of email, you can
+                                <a href="#" style="color: #0078d4; text-decoration: none;">unsubscribe</a> or
+                                <a href="#" style="color: #0078d4; text-decoration: none;">manage your email preferences</a>.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

